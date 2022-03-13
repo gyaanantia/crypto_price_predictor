@@ -1,0 +1,26 @@
+
+aside{
+  padding: 10px;
+  margin: 0;
+  position: fixed;
+  left: 70%;
+  width: 30%;
+  height: 100vh;
+  background-color: #bbbec4;
+
+}
+
+main{
+  padding: 0;
+  margin: 0;
+  width: 70%;
+  height: 100vh;
+  background-color: #f2f2f2;
+}
+main *{
+  margin: 10px;
+}
+
+#graphimg{
+  width: 70%;
+}
