@@ -12,17 +12,19 @@ from sklearn.metrics import mean_absolute_error
 import sys
 
 class CryptoCurrencyPricePredictor():
-    def __init__(self):
+    def __init__(self,window_len=5,test_size=0.2,zero_base=True,lstm_neurons=100,epochs=20,batch_size=32,loss='mse',dropout=0.2,optimizer='adam'):
         np.random.seed(42)
-        self.window_len = 5
-        self.test_size = 0.2
-        self.zero_base = True
-        self.lstm_neurons = 100
-        self.epochs = 20 
-        self.batch_size = 32
-        self.loss = 'mse'
-        self.dropout = 0.2
-        self.optimizer = 'adam'
+        self.window_len = window_len
+        self.test_size = test_size
+        self.zero_base = zero_base
+        self.lstm_neurons = lstm_neurons
+        self.epochs = epochs
+        self.batch_size = batch_size
+        self.loss = loss
+        self.dropout = dropout
+        self.optimizer = optimizer
+
+        #model storage data
         self.hist = None
         self.high_col,self.low_col,self.open_col,self.volumefrom_col,self.volumeto_col,self.close_col = \
             None, None, None, None, None, None
