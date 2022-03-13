@@ -107,16 +107,14 @@ def build_lstm_model(input_data, output_size, neurons=100, activ_func='linear', 
     model.compile(loss=loss, optimizer=optimizer)
     return model
 
-
-def build_and_train_model():
+def save_data():
     global train_high, test_high, X_train_high, X_test_high, Y_train_high, Y_test_high 
     global train_low, test_low, X_train_low, X_test_low, Y_train_low, Y_test_low
     global train_open, test_open, X_train_open, X_test_open, Y_train_open, Y_test_open
     global train_volumefrom, test_volumefrom, X_train_volumefrom, X_test_volumefrom, Y_train_volumefrom, Y_test_volumefrom
     global train_volumeto, test_volumeto, X_train_volumeto, X_test_volumeto, Y_train_volumeto, Y_test_volumeto
     global train_close, test_close, X_train_close, X_test_close, Y_train_close, Y_test_close
-    get_data()
-
+    
     train_high, test_high, X_train_high, X_test_high, Y_train_high, Y_test_high = prepare_data(
         hist, high_col, window_len=window_len, zero_base=zero_base, test_size=test_size)
     train_low, test_low, X_train_low, X_test_low, Y_train_low, Y_test_low = prepare_data(
@@ -130,6 +128,9 @@ def build_and_train_model():
     train_close, test_close, X_train_close, X_test_close, Y_train_close, Y_test_close = prepare_data(
         hist, close_col, window_len=window_len, zero_base=zero_base, test_size=test_size)
 
+def build_and_train_model():
+    get_data()
+    save_data()
     global model_high, model_low,model_open,model_close,model_volumefrom, model_volumeto
     model_high= build_lstm_model(
         X_train_high, output_size=1, neurons=lstm_neurons, dropout=dropout, loss=loss,
@@ -256,7 +257,7 @@ def predict(days):
         df_new = df_new.set_index('time')
         hist.append(df_new)
 
-        get_data()
+        save_data()
 
         days_count += 1
 
