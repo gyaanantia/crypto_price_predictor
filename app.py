@@ -4,6 +4,20 @@ from matplotlib.figure import Figure
 import numpy as np
 import io
 import base64
+#
+# import json
+# import requests
+# from keras.models import Sequential
+# from keras.layers import Activation, Dense, Dropout, LSTM
+# import matplotlib.pyplot as plt
+# import numpy as np
+# import pandas as pd
+# import seaborn as sns
+# from sklearn.metrics import mean_absolute_error
+
+
+from crypto_predictor import LSTM_train
+
 
 
 
@@ -29,6 +43,5 @@ with open("companies/images.txt","r") as f:
 @app.route('/')
 def home():
     return render_template("index.html",
-        company_list = ["Company A","Company B","Company C"],
         graph_img_link = data
         )

@@ -1,6 +1,11 @@
 <aside>
-<h2>My Companies</h2>
-  {% for i in range(company_list|length) %}
-    <p>{{ company_list[i] }}</p>
-  {% endfor %}
+  <h2>Predict Price</h2>
+  <form onsubmit="predict(event);return false">
+    <input type="text" name="date" id="date" placeholder="Type In Date (mm/dd)">
+    <button type="submit">
+      <p><a align="right">Calculate</a></p>
+    </button>
+  </form>
+  <section id="results">
+  </section>
 </aside>
