@@ -1,0 +1,63 @@
+.App {
+  text-align: center;
+  margin: 0 auto;
+  max-width: 1000px;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+.App-header {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  font-size: calc(10px + 2vmin);
+}
+
+li {
+  list-style-type: none;
+}
+
+h4 {
+  font-size: 2rem;
+  display: inline;
+}
+
+h5 {
+  font-size: 1.5rem;
+}
+
+h6 {
+  font-size: 1rem;
+}
+
+.left-side {
+  float: left;
+  text-align: left;
+  width: 70%;
+}
+
+.right-side {
+  float: left;
+  text-align: left;
+  width: 30%;
+}
+
+.time-button button {
+  margin: auto;
+}
+
+.time-button {
+  display: inline-block;
+  float: left;
+  width: 25%;
+}
+
+.time-button h5: hover{
+  text-decoration: underline;
+}
