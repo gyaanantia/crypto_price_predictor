@@ -83,20 +83,20 @@ class LSTM_train():
 
 
 
-#
-# model = LSTM_train()
-# train, test = model.train_test_split(model.hist, test_size=0.2)
-# model.line_plot(train[model.target_col], test[model.target_col], 'training', 'test', title='')
-#
-#
-# train, test, X_train, X_test, y_train, y_test = model.prepare_data(model.hist, model.target_col, window_len=model.window_len, zero_base=model.zero_base, test_size=model.test_size)
-# MODEL = model.build_lstm_model(X_train, output_size=1, neurons=model.lstm_neurons, dropout=model.dropout, loss=model.loss, optimizer=model.optimizer)
-# history = MODEL.fit(np.asarray(X_train).astype('float32'), np.asarray(y_train).astype('float32'), epochs=model.epochs, batch_size=model.batch_size, verbose=1, shuffle=True)
-#
-# targets = test[model.target_col][model.window_len:]
-# preds = MODEL.predict(np.asarray(X_test).astype('float32')).squeeze()
-# mean_absolute_error(preds, y_test)
-#
-# preds = test[model.target_col].values[:-model.window_len] * (preds + 1)
-# preds = pd.Series(index=targets.index, data=preds)
-# model.line_plot(targets, preds, 'actual', 'prediction', lw=3)
+
+model = LSTM_train()
+train, test = model.train_test_split(model.hist, test_size=0.2)
+model.line_plot(train[model.target_col], test[model.target_col], 'training', 'test', title='')
+
+
+train, test, X_train, X_test, y_train, y_test = model.prepare_data(model.hist, model.target_col, window_len=model.window_len, zero_base=model.zero_base, test_size=model.test_size)
+MODEL = model.build_lstm_model(X_train, output_size=1, neurons=model.lstm_neurons, dropout=model.dropout, loss=model.loss, optimizer=model.optimizer)
+history = MODEL.fit(np.asarray(X_train).astype('float32'), np.asarray(y_train).astype('float32'), epochs=model.epochs, batch_size=model.batch_size, verbose=1, shuffle=True)
+
+targets = test[model.target_col][model.window_len:]
+preds = MODEL.predict(np.asarray(X_test).astype('float32')).squeeze()
+mean_absolute_error(preds, y_test)
+
+preds = test[model.target_col].values[:-model.window_len] * (preds + 1)
+preds = pd.Series(index=targets.index, data=preds)
+model.line_plot(targets, preds, 'actual', 'prediction', lw=3)
