@@ -187,7 +187,7 @@ class CryptoCurrencyPricePredictor():
         self.line_plot(targets, preds, 'actual open', 'predicted open', lw=3)
 
         #test model_volumefrom
-        preds =self.vmodel_volumefrom.predict(self.X_test_volumefrom).squeeze()
+        preds =self.model_volumefrom.predict(self.X_test_volumefrom).squeeze()
         targets = self.test_volumefrom[self.volumefrom_col][self.window_len:]
         preds = self.test_volumefrom[self.volumefrom_col].values[:-self.window_len] * (preds + 1)
         preds = pd.Series(index=targets.index, data=preds)
