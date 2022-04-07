@@ -16,7 +16,6 @@ class LSTM_train():
     hist = hist.set_index('time')
     hist.index = pd.to_datetime(hist.index, unit='s')
     target_col = 'close'
-    hist.head(5)
 
     np.random.seed(42)
     window_len = 5
@@ -86,7 +85,7 @@ class LSTM_train():
 
 model = LSTM_train()
 train, test = model.train_test_split(model.hist, test_size=0.2)
-model.line_plot(train[model.target_col], test[model.target_col], 'training', 'test', title='')
+#model.line_plot(train[model.target_col], test[model.target_col], 'training', 'test', title='')
 
 
 train, test, X_train, X_test, y_train, y_test = model.prepare_data(model.hist, model.target_col, window_len=model.window_len, zero_base=model.zero_base, test_size=model.test_size)
@@ -99,4 +98,4 @@ mean_absolute_error(preds, y_test)
 
 preds = test[model.target_col].values[:-model.window_len] * (preds + 1)
 preds = pd.Series(index=targets.index, data=preds)
-model.line_plot(targets, preds, 'actual', 'prediction', lw=3)
+#model.line_plot(targets, preds, 'actual', 'prediction', lw=3)

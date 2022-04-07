@@ -1,13 +1,10 @@
 
 aside{
-  padding: 10px;
-  margin: 0;
   position: fixed;
   left: 70%;
   width: 30%;
   height: 100vh;
   background-color: #bbbec4;
-
 }
 
 main{

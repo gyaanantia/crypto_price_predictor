@@ -1,9 +1,9 @@
 <aside>
   <h2>Predict Price</h2>
-  <form onsubmit="predict(event);return false">
-    <input type="text" name="date" id="date" placeholder="Type In Date (mm/dd)">
-    <button type="submit">
-      <p><a align="right">Calculate</a></p>
+  <form method = "POST">
+    <input type="number" name = "tag" id="date" placeholder="Number of days to Predict">
+    <button type="submit", value = "submit">
+      <p><a>Calculate</a></p>
     </button>
   </form>
   <section id="results">
