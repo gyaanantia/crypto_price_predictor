@@ -1,13 +1,13 @@
 <aside>
   <h2>Predict Price</h2>
   <form method = "POST">
-    <input type="number" name = "tag" id="date" placeholder="Number of days to Predict">
+    <input type="number" name = "tag" id="date" placeholder="Number of days to Predict" min = 0 max = 7>
     <button type="submit", value = "submit">
       <p><a>Calculate</a></p>
     </button>
   </form>
   {% for price in price_predictions %}
-    <div id = "date"> {{ price }} </div>
+    <div> {{ price }} </div>
   {% endfor %}
   <section id="results">
   </section>

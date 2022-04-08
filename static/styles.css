@@ -23,3 +23,7 @@ main *{
   margin-left: 15%;
   margin-top: 10%;
 }
+
+#date {
+  width: 100px;
+}
