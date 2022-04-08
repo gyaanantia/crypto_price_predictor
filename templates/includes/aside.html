@@ -6,6 +6,9 @@
       <p><a>Calculate</a></p>
     </button>
   </form>
+  {% for price in price_predictions %}
+    <div id = "date"> {{ price }} </div>
+  {% endfor %}
   <section id="results">
   </section>
 </aside>
